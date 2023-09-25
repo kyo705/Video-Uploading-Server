@@ -1,0 +1,47 @@
+= Thumbnail upload API 문서
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+
+== 썸네일 업로드 성공시
+
+=== Request
+
+include::{snippets}/thumbnail/upload/success/http-request.adoc[]
+
+=== Response
+
+include::{snippets}/thumbnail/upload/success/http-response.adoc[]
+
+== 허용되지 않는 썸네일 파일 확장자로 업로드 요청시
+
+=== Request
+
+include::{snippets}/thumbnail/upload/notAllowedFormat/http-request.adoc[]
+
+=== Response
+
+include::{snippets}/thumbnail/upload/notAllowedFormat/http-response.adoc[]
+
+== 존재하지 않는 썸네일 파일로 업로드 요청시
+
+=== Request
+
+include::{snippets}/thumbnail/upload/notExistingFile/http-request.adoc[]
+
+=== Response
+
+include::{snippets}/thumbnail/upload/notExistingFile/http-response.adoc[]
+
+== 썸네일 파일 저장 중 에러 발생시
+
+=== Request
+
+include::{snippets}/thumbnail/upload/uploadingError/http-request.adoc[]
+
+=== Response
+
+include::{snippets}/thumbnail/upload/uploadingError/http-response.adoc[]
+
