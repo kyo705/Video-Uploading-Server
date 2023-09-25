@@ -15,58 +15,9 @@ VOD 서비스에서 유저의 파일 업로드를 처리하는 서버
 > - **external library** : spring kafka, tus-java-server(https://github.com/tomdesair/tus-java-server)
 
 ## Upload Server API
+[***썸네일 파일 업로드 API***](https://kyo705.github.io/Video-Uploading-Server/src/docs/asciidoc/thumbnail_upload.html)   
 
-***파일 업로드 요청***
-```
-URL : api/uploading/video/{channelId}/{videoId}/tus
-Request Body : required body about tus library      ※ URL : https://github.com/tus/tus-js-client
-```
-
-
-***업로드 성공시***
-```
-Status Code : 200 OK
-Response Body : 
-
-{
-    "filePath" : "/video/{channel-id}/{video-id}/original/{file-name}"
-    "message" : "파일 업로드 성공"
-}
-```
-
----------------
-
-***썸네일 이미지 업로드 요청***
-
-```
-URL : api/uploading/thumbnail/{channelId}/{videoId}
-Content-Type : multipart/form-data
-Request Body : 이미지 파일 바이너리 데이터
-```
-
-***썸네일 이미지 업로드 성공시***
-
-```
-Status Code : 200 OK
-Response Body : 
-
-{
-    "isCompleted" : true,
-    "message" : "uploading thumbnail image is completed"
-}
-```
-
-***썸네일 이미지 업로드 실패시***
-
-```
-Status Code : 500 Internal Server Error
-Response Body : 
-
-{
-    "isCompleted" : false,
-    "message" : "uploading thumbnail image is failed because of thumbnail extractor's error"
-}
-```
+[***동영상 파일 업로드 API***]()
 
 
 ## Tus Protocol이란?
