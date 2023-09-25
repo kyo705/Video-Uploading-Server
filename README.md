@@ -19,8 +19,9 @@ VOD 서비스에서 유저의 파일 업로드를 처리하는 서버
 ***파일 업로드 요청***
 ```
 URL : api/uploading/video/{channelId}/{videoId}/tus
-Request Body : null
+Request Body : required body about tus library      ※ URL : https://github.com/tus/tus-js-client
 ```
+
 
 ***업로드 성공시***
 ```
