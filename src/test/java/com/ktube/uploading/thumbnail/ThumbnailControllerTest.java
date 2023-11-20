@@ -42,7 +42,7 @@ public class ThumbnailControllerTest {
                 "thumbnail", "test.jpg", "image/jpg", new byte[10]);
 
         String thumbnailFilePath = "/1/1/1_thumbnail.jpg";
-        BDDMockito.given(thumbnailService.upload(any(), any())).willReturn(thumbnailFilePath);
+        BDDMockito.given(thumbnailService.upload(any())).willReturn(thumbnailFilePath);
 
         //when & then
         mockMvc.perform(
@@ -126,7 +126,7 @@ public class ThumbnailControllerTest {
         MockMultipartFile thumbnailFile = new MockMultipartFile(
                 "thumbnail", "test.jpg", "image/jpg", new byte[10]);
 
-        BDDMockito.given(thumbnailService.upload(any(), any()))
+        BDDMockito.given(thumbnailService.upload(any()))
                 .willThrow(new SavingFileException(FAILURE_UPLOADING_THUMBNAIL_FILE_MESSAGE));
 
         //when & then

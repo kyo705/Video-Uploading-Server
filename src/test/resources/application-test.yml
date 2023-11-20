@@ -1,0 +1,6 @@
+home_path : /hihi
+
+tus:
+  data:
+    path: C:\Users\교육생11\Downloads
+    expiration: 100000

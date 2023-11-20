@@ -1,7 +1,7 @@
 package com.ktube.uploading.thumbnail;
 
 import lombok.RequiredArgsConstructor;
-import me.desair.tus.server.HttpHeader;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -23,18 +23,19 @@ public class ThumbnailController {
     private final ThumbnailService thumbnailService;
 
     @PostMapping(THUMBNAIL_UPLOADING_URL)
-    public ResponseEntity<ResponseThumbnailUploadingDto> upload(@PathVariable String channelId,
-                                 @PathVariable String videoId,
-                                 @PathVariable String thumbnailId,
-                                 @RequestParam MultipartFile thumbnail) throws IOException {
+    public ResponseEntity<ResponseThumbnailUploadingDto> upload(
+            @PathVariable String channelId, @PathVariable String videoId, @RequestParam MultipartFile thumbnail) throws IOException {
 
         validateFormat(thumbnail);
 
-        String directoryPath = Paths.get(channelId, videoId, thumbnailId).toString();
-        String thumbnailFilePath = thumbnailService.upload(directoryPath, thumbnail);
+        RequestThumbnailUploadingDto request = new RequestThumbnailUploadingDto();
+        request.setChannelId(channelId);
+        request.setVideoId(videoId);
+        request.setMultipartFile(thumbnail);
+        String thumbnailFilePath = thumbnailService.upload(request);
 
         return ResponseEntity.status(HttpStatus.CREATED)
-                .header(HttpHeader.LOCATION, thumbnailFilePath)
+                .header(HttpHeaders.LOCATION, thumbnailFilePath)
                 .body(ResponseThumbnailUploadingDto
                         .builder()
                         .isCompleted(SUCCESSFUL_COMPLETION_STATE)

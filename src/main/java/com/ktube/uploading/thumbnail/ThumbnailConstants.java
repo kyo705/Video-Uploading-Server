@@ -2,9 +2,9 @@ package com.ktube.uploading.thumbnail;
 
 public class ThumbnailConstants {
 
-    public static final String FORMAT_SEPARATOR = "[.]";
+    public static final String FORMAT_SEPARATOR = ".";
     public static final String IMAGE_CONTENT_TYPE_KEYWORD = "image";
-    public static final String THUMBNAIL_UPLOADING_URL = "/api/channel/{channelId}/video/{videoId}/thumbnail/{thumbnailId}";
+    public static final String THUMBNAIL_UPLOADING_URL = "/api/channel/{channelId}/video/{videoId}/thumbnail";
     public static final boolean SUCCESSFUL_COMPLETION_STATE = true;
     public static final boolean FAIL_COMPLETION_STATE = false;
     public static final String SUCCESSFUL_COMPLETION_MESSAGE = "uploading thumbnail is completed successfully";
